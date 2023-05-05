@@ -1,5 +1,7 @@
+import { clientes } from 'src/app/shared/model/cliente.model';
 import { ClienteService } from './../../../../../shared/services/cliente.service';
 import { Component, OnInit } from '@angular/core';
+import { finalize } from 'rxjs';
 
 
 @Component({
@@ -8,7 +10,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listar-clientes.component.scss']
 })
 export class ListarClientesComponent implements OnInit {
-  reqwr = []
+  clientes: clientes[] = [];
+  loading: boolean = false;
   constructor(
     private readonly clienteService: ClienteService
   ){}
@@ -16,8 +19,11 @@ export class ListarClientesComponent implements OnInit {
     this.listarClientes()
   }
   listarClientes(){
-    this.clienteService.listarClientes().subscribe((response) =>{
-      console.log(response)
+    this.clienteService.listarClientes().pipe(finalize(() =>{
+      this.loading = false;
+    })).subscribe((response) =>{
+      this.loading = true;
+      this.clientes = response
     })
   }
 }
