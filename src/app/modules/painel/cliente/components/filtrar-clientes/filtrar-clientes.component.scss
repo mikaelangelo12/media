@@ -1,0 +1,82 @@
+@import '../../../../../../styles.scss';
+.container-filtrar-cliente{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.filtrar-cliente{
+    background-color: $cor-segundaria;
+    max-width: 1300px;
+    width: 100%;
+    border-radius: 0 0 10px 10px;
+    padding: 30px;
+
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    align-content: space-between;
+}
+.titulo-filtrar-cliente{
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 20px;
+}
+.inputs-filtrar-cliente{
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.input-login{
+    margin-right: 10px;
+    margin-left: 10px;
+}
+/*
+    area de configuração responsiva
+*/
+@media (max-width: 1131px){
+    .input-login{
+        width: 40%;
+    }
+}
+@media (max-width: 800px){
+    .input-login{
+        width: 100%;
+    }
+}
+/*
+    Persolaização dos inputs Material
+*/
+
+::ng-deep .mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: white;
+    border-radius: 8px;
+}
+
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-floating-label {
+    color: rgb(0 0 0);
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+::ng-deep .mdc-text-field:not(.mdc-text-field--disabled) .mdc-text-field__input {
+    color: rgb(0 0 0);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+::ng-deep .mat-mdc-form-field-focus-overlay {
+    background-color: #fff;
+}
+
+::ng-deep .mdc-text-field .mdc-text-field__input {
+    caret-color: $cor-segundaria;
+}
+
+::ng-deep .mdc-text-field--filled .mdc-line-ripple::after {
+    border-bottom-color: black;
+}
