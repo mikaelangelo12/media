@@ -13,7 +13,7 @@ export class ListarClientesComponent implements OnInit {
     private readonly clienteService: ClienteService
   ){}
   ngOnInit(): void {
-    
+    this.listarClientes()
   }
   listarClientes(){
     this.clienteService.listarClientes().subscribe((response) =>{
