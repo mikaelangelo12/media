@@ -17,6 +17,7 @@
     align-content: space-between;
 }
 .titulo-filtrar-cliente{
+    margin-top: 56px;
     display: flex;
     align-items: center;
     font-size: 2rem;
@@ -46,6 +47,11 @@
 @media (max-width: 800px){
     .input-login{
         width: 100%;
+    }
+}
+@media (max-width: 328px){
+    .filtrar-cliente{
+        padding: 10px;
     }
 }
 /*

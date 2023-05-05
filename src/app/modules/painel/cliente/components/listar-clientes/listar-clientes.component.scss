@@ -1,0 +1,14 @@
+.container-listar-cliente{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+.listar-cliente{
+    max-width: 1300px;
+    width: 100%;
+}
+
+::ng-deep .mat-mdc-table {
+    padding: 20px;
+}
