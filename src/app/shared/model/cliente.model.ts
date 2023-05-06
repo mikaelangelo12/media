@@ -1,24 +1,24 @@
-export interface clientes {
+export interface Clientes {
     email: string;
     name: string;
     phone: string;
     username: string;
     website: string;
-    address: address[];
-    company: company[];
+    address: Address[];
+    company: Company[];
 }
-export interface address {
+export interface Address {
     city: string;
-    geo: geo[];
+    geo: Geo[];
     street: string;
     suite: string;
     zipcode: string;
 }
-export interface geo {
+export interface Geo {
     lat: string;
     lng: string;
 }
-export interface company {
+export interface Company {
     bs: string;
     catchPhrase: string;
     name: string;
