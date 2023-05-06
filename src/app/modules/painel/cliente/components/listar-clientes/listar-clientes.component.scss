@@ -26,3 +26,10 @@
     color: $cor-primaria!important;
 }
 
+::ng-deep .ui-table-responsive {
+    overflow-x: scroll;
+}
+.table-responsive {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
