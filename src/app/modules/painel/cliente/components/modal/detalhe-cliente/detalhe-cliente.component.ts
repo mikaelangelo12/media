@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig } from 'primeng/dynamicdialog';
-import { Clientes } from 'src/app/shared/model/cliente.model';
+import { Clientes, Geo, } from 'src/app/shared/model/cliente.model';
 
 @Component({
   selector: 'app-detalhe-cliente',
@@ -8,11 +8,13 @@ import { Clientes } from 'src/app/shared/model/cliente.model';
   styleUrls: ['./detalhe-cliente.component.scss']
 })
 export class DetalheClienteComponent implements OnInit {
-  dadosCliente: Clientes
+  dadosCliente: Clientes | any
+  geoLocalizacao: Geo | any
   constructor(
     private readonly config: DynamicDialogConfig,
   ){}
   ngOnInit(): void {
-    
+    this.dadosCliente = this.config.data.clientes
+    this.geoLocalizacao = this.dadosCliente.address.geo
   }
 }

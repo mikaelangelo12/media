@@ -15,8 +15,8 @@ export interface Address {
     zipcode: string;
 }
 export interface Geo {
-    lat: string;
-    lng: string;
+    lat?: string;
+    lng?: string;
 }
 export interface Company {
     bs: string;

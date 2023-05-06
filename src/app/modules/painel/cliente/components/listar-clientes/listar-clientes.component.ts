@@ -40,7 +40,7 @@ export class ListarClientesComponent implements OnInit {
       baseZIndex: 10000,
       maximizable: false,
       data:{
-        dadosClientes: clientes
+        clientes: clientes
       }
     });
   }
