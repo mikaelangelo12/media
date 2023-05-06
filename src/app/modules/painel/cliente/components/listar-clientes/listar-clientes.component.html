@@ -4,10 +4,10 @@
         <p-table [value]="clientes">
             <ng-template pTemplate="header" let-columns>
                 <tr>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Cidade</th>
-                    <th>Empresa</th>
+                    <th pSortableColumn="name" style="width:20%"><mat-icon matSuffix>person</mat-icon> Nome <p-sortIcon field="name"></p-sortIcon></th>
+                    <th pSortableColumn="email" style="width:20%"><mat-icon matSuffix>mail</mat-icon> Email <p-sortIcon field="email"></p-sortIcon></th>
+                    <th pSortableColumn="address.city" style="width:20%"><mat-icon matSuffix>location_on</mat-icon>Cidade <p-sortIcon field="address.city"></p-sortIcon></th>
+                    <th pSortableColumn="company.name" style="width:20%"><mat-icon matSuffix>location_city</mat-icon>Empresa <p-sortIcon field="company.name"></p-sortIcon></th>
                     <th>Detalhe</th>
                 </tr>
             </ng-template>
