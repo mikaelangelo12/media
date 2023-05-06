@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { finalize } from 'rxjs';
 import { DetalheClienteComponent } from '../modal/detalhe-cliente/detalhe-cliente.component';
 import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { ClientesObservableService } from '../../service/clientes-obsevable.service';
 
 
 @Component({
@@ -14,10 +15,11 @@ import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
 })
 export class ListarClientesComponent implements OnInit {
   clientes: Clientes[] = [];
+  listaClientes: Clientes[] = [];
   loading: boolean = false;
   constructor(
     private readonly dialogService: DialogService,     
-    private readonly ref: DynamicDialogRef,
+    private readonly osObservable: ClientesObservableService,
     private readonly clienteService: ClienteService
   ){}
   ngOnInit(): void {
@@ -28,7 +30,8 @@ export class ListarClientesComponent implements OnInit {
       this.loading = false;
     })).subscribe((response) =>{
       this.loading = true;
-      this.clientes = response
+      this.clientes = response;
+      this.listaClientes = this.clientes;
     })
   }
 
