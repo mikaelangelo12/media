@@ -1,10 +1,11 @@
-import { Clientes } from 'src/app/shared/model/cliente.model';
+import { Address, Clientes } from 'src/app/shared/model/cliente.model';
 import { ClienteService } from './../../../../../shared/services/cliente.service';
-import { Component, OnInit } from '@angular/core';
-import { finalize } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription, finalize } from 'rxjs';
 import { DetalheClienteComponent } from '../modal/detalhe-cliente/detalhe-cliente.component';
-import { DialogService, DynamicDialogRef } from 'primeng/dynamicdialog';
+import { DialogService } from 'primeng/dynamicdialog';
 import { ClientesObservableService } from '../../service/clientes-obsevable.service';
+import { Filtro } from 'src/app/shared/model/filtro-cliente.model';
 
 
 @Component({
@@ -13,38 +14,70 @@ import { ClientesObservableService } from '../../service/clientes-obsevable.serv
   styleUrls: ['./listar-clientes.component.scss'],
   providers: [DialogService]
 })
-export class ListarClientesComponent implements OnInit {
+export class ListarClientesComponent implements OnInit, OnDestroy {
+  filtro: Filtro | any;
   clientes: Clientes[] = [];
-  listaClientes: Clientes[] = [];
+  listaClientes: Clientes[] | any;
   loading: boolean = false;
+  subscriptionCliente: Subscription;
+
   constructor(
-    private readonly dialogService: DialogService,     
+    private readonly dialogService: DialogService,
     private readonly osObservable: ClientesObservableService,
     private readonly clienteService: ClienteService
-  ){}
+  ) {
+    this.subscriptionCliente = this.osObservable.observableCliente().subscribe((filtro: Filtro) => {
+      this.filtro = filtro
+      if (filtro.nomeCliente.length > 0) {
+        this.filtrarClientes()
+      } else {
+        this.listaClientes = this.clientes;
+      }
+    })
+  }
+
   ngOnInit(): void {
     this.listarClientes()
   }
-  listarClientes(){
-    this.clienteService.listarClientes().pipe(finalize(() =>{
+
+  ngOnDestroy(): void {
+    this.subscriptionCliente.unsubscribe();
+  }
+
+  listarClientes() {
+    this.clienteService.listarClientes().pipe(finalize(() => {
       this.loading = false;
-    })).subscribe((response) =>{
+    })).subscribe((response) => {
       this.loading = true;
       this.clientes = response;
       this.listaClientes = this.clientes;
     })
   }
 
-  listarDetalhes(clientes: any){
+  listarDetalhes(clientes: any) {
     this.dialogService.open(DetalheClienteComponent, {
       header: `${clientes.name}`,
       width: '90%',
       contentStyle: { overflow: 'auto' },
       baseZIndex: 10000,
       maximizable: false,
-      data:{
+      data: {
         clientes: clientes
       }
     });
   }
+
+  filtrarClientes() {
+    this.listaClientes = this.clientes.filter((listaCliente: Clientes | any) =>
+
+    (this.filtro.nomeCliente == null || listaCliente.name.toLowerCase().includes(this.filtro.nomeCliente.toLowerCase())) &&
+    (this.filtro.emailCliente == null || listaCliente.email.toLowerCase().includes(this.filtro.emailCliente.toLowerCase())) &&
+    (this.filtro.cidadeCliente == null || listaCliente.address.city.toLowerCase().includes(this.filtro.cidadeCliente.toLowerCase())) &&
+    (this.filtro.empresaCliente == null || listaCliente.company.name.toLowerCase().includes(this.filtro.empresaCliente.toLowerCase()))
+
+    )
+  }
+
+
+
 }

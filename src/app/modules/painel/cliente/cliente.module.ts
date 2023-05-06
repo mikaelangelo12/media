@@ -14,8 +14,7 @@ import { FiltrarClientesComponent } from './components/filtrar-clientes/filtrar-
 import { DetalheClienteComponent } from './components/modal/detalhe-cliente/detalhe-cliente.component';
 import { GoogleMapsComponent } from './components/modal/detalhe-cliente/components/google-maps/google-maps.component';
 import { UsuarioClienteComponent } from './components/modal/detalhe-cliente/components/usuario-cliente/usuario-cliente.component';
-
-
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -27,6 +26,8 @@ import { UsuarioClienteComponent } from './components/modal/detalhe-cliente/comp
     UsuarioClienteComponent
   ],
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     CommonModule,
     MatIconModule,
     MatInputModule,

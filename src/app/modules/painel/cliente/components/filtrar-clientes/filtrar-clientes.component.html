@@ -7,22 +7,22 @@
         <div class="inputs-filtrar-cliente">
             <mat-form-field class="input-login">
                 <mat-label>Nome Cliente</mat-label>                  
-                <input matInput placeholder="Ex. usuario.sobrenome" >
+                <input matInput placeholder="Ex. usuario sobrenome" (keyup)="dadosNomeCliente()" [(ngModel)]="filtro.nomeCliente" >
                 <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
             <mat-form-field class="input-login">
                 <mat-label>Email</mat-label>                  
-                <input matInput placeholder="Ex. usuario.sobrenome" >
+                <input matInput placeholder="Ex. usuario@usuario.com" (keyup)="dadosNomeCliente()" [(ngModel)]="filtro.emailCliente" >
                 <mat-icon matSuffix>mail</mat-icon>
             </mat-form-field>
             <mat-form-field class="input-login">
                 <mat-label>Cidade</mat-label>                  
-                <input matInput placeholder="Ex. usuario.sobrenome" >
+                <input matInput placeholder="Ex. cidade" (keyup)="dadosNomeCliente()" [(ngModel)]="filtro.cidadeCliente">
                 <mat-icon matSuffix>location_on</mat-icon>
             </mat-form-field>
             <mat-form-field class="input-login">
                 <mat-label>Empresa</mat-label>                  
-                <input matInput placeholder="Ex. usuario.sobrenome" >
+                <input matInput placeholder="Ex. empresa" (keyup)="dadosNomeCliente()" [(ngModel)]="filtro.empresaCliente">
                 <mat-icon matSuffix>location_city</mat-icon>
             </mat-form-field>
         </div>

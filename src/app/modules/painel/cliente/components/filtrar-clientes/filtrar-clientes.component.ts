@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientesObservableService } from '../../service/clientes-obsevable.service';
+import { Filtro } from 'src/app/shared/model/filtro-cliente.model';
 
 @Component({
   selector: 'app-filtrar-clientes',
@@ -7,10 +8,17 @@ import { ClientesObservableService } from '../../service/clientes-obsevable.serv
   styleUrls: ['./filtrar-clientes.component.scss']
 })
 export class FiltrarClientesComponent implements OnInit {
+  filtro = new Filtro();
+
   constructor(
     private readonly osObservable: ClientesObservableService,
   ){}
-  ngOnInit(): void {
-    
+
+  ngOnInit(): void {    
+
+  }
+
+  dadosNomeCliente(){
+    this.osObservable.nextCliente(this.filtro)
   }
 }
