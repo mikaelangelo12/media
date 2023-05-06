@@ -22,6 +22,7 @@ import { DynamicDialogRef, DynamicDialogConfig } from 'primeng/dynamicdialog';
     LayoutModule,
     AppRoutingModule,
     HttpClientModule,
+    
   ],
   providers: [ 
     DynamicDialogRef, 

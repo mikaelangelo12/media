@@ -1,5 +1,7 @@
 import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
 
 import { LayoutComponent } from './layout.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -23,6 +25,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     LoadingModule,
     ReactiveFormsModule,
     AppRoutingModule,
+    ToastModule,
+    MessagesModule
   ],  
   exports: [LayoutComponent]
 })

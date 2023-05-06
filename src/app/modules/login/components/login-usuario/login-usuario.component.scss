@@ -1,41 +1,20 @@
 @import '../../../../../styles.scss';
-
-.container-login-usuario{
-    display: grid;
-    justify-items: center;
-}
-
 .container-title{
-    display: flex;
-
-}
-
-.login{
-    max-width: 500px;
-    width: 100%;
-    padding: 10px;
-    margin-top: 56px;
-    
-    mat-card{
-        padding: 20px;
-        color: white;
-        font-weight: 700;
-        font-size: 1.3rem;
-        background-color: #004521;
-        border-radius: 10px;
-        display: grid;
-        height: 280px;
-        justify-items: start;
-        align-content: space-between;
-    }
-
-    button{
-        background-color: $cor-primaria;
-    }
+    margin-bottom: 10px;
 }
 
 .input-login{
     width: 100%;
+}
+
+.botao-login{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    align-items: center;
+
+    button{
+        background-color: $cor-primaria;
+    }
 }
 
 mat-icon{

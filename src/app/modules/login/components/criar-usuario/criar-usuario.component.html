@@ -1,1 +1,24 @@
-<p>criar-usuario works!</p>
+<div class="container-title">
+    <mat-icon matSuffix style="color:white; margin-right: 10px;">group</mat-icon>
+    <span>Criar seu usuario!</span>
+</div>
+<div class="">
+
+    <mat-form-field class="input-login">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="Digite seu usuario" [(ngModel)]="usuario">
+        <mat-icon matSuffix>person</mat-icon>
+    </mat-form-field>
+
+    <mat-form-field class="input-login">
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" placeholder="Digite sua senha" [(ngModel)]="senha">
+        <mat-icon matSuffix>key</mat-icon>
+    </mat-form-field>
+
+</div>
+<div class="botao-login">
+    <span (click)="voltar()"  style="width: 100%; display: flex; align-items: center; cursor: pointer;"><i class="pi pi-user-plus" style="font-size: 1rem; margin-right: 10px;"></i> Criar Usuario</span>
+    <button mat-raised-button color="primary" (click)="crairUsuario()">Criar usuario</button>
+</div>
+<p-toast></p-toast>

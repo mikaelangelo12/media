@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { Router } from '@angular/router';
+import { MessageService } from 'primeng/api';
+import { LoginService } from 'src/app/shared/services/login.service';
+import { LoginObservableService } from '../../service/login-observable.service';
+import { DadosUsuarios } from 'src/app/shared/model/login/login.model';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -11,10 +16,76 @@ export class MyErrorStateMatcher implements ErrorStateMatcher {
 @Component({
   selector: 'app-login-usuario',
   templateUrl: './login-usuario.component.html',
-  styleUrls: ['./login-usuario.component.scss']
+  styleUrls: ['./login-usuario.component.scss'],
+  providers: [MessageService]
 })
 export class LoginUsuarioComponent {
-  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+  usuario: string = '';
+  senha: string = '';
+  usuarioSenha: any = {};
+  dadosUsuarios: DadosUsuarios[] = [];
+  
+  constructor(
+    private readonly router: Router,
+    private osService: LoginObservableService,
+    private loginService: LoginService,
+    private messageService: MessageService,
+  ){}
 
-  matcher = new MyErrorStateMatcher();
+  ngOnInit(): void {
+    this.usuarioSenha = {
+      username: this.usuario,
+      password: this.senha,
+    }
+    this.listarUsuario()
+  }
+
+  listarUsuario(){
+    this.loginService.listarUsuario().subscribe((response)=>{
+      this.dadosUsuarios = response;
+    })
+  }
+
+  voltarUsuario(){
+    this.osService.nextCriarUsuario(true)
+  }
+
+  dadosUsuario(){
+    this.usuarioSenha = {
+      username: this.usuario,
+      password: this.senha,
+    }
+  }
+
+  validarSeExisteUsuario(){
+    return this.dadosUsuarios.find(
+      objeto => 
+      (objeto.username === this.usuarioSenha.username) &&
+      (objeto.password === this.usuarioSenha.password)
+      );
+  }
+
+  salvarDadoUsuarioMemoria(){
+    const daddosUsuarios: any = this.dadosUsuarios.filter(entidade => entidade.username === this.usuarioSenha.username)
+    localStorage.setItem('usuario', daddosUsuarios[0].username);
+    localStorage.setItem('tipoUsuario', daddosUsuarios[0].tipoUsuario);
+  }
+
+  acessaPainel(){
+    this.dadosUsuario()
+    if(this.validarSeExisteUsuario()){ 
+           
+      this.messageService.add({severity:'success', summary:`Bem Vindo ${this.usuario}!`, detail:'Parabéns! Suas credenciais foram verificadas com sucesso. Você agora está logado em sua conta.'});
+      this.salvarDadoUsuarioMemoria()
+      setTimeout(() => {
+        this.router.navigate(['/painel'])
+        this.messageService.clear();
+      }, 1000);
+
+    }else{
+      this.messageService.add({severity:'error', summary:`Desculpe`, sticky: true ,detail:'suas credenciais estão incorretas. \n Verifique se você digitou corretamente seu nome de usuário e senha e tente novamente.'});
+    }
+
+  }
+  
 }

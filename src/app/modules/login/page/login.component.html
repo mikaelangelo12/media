@@ -1,1 +1,8 @@
-<app-login-usuario></app-login-usuario>
+<div class="container-login-usuario">
+    <div class="login">
+        <mat-card>
+            <app-login-usuario *ngIf="exbirFormularioCriarUsuario"></app-login-usuario>
+            <app-criar-usuario *ngIf="exbirFormularioVoltarUsuario"></app-criar-usuario>
+        </mat-card>
+    </div>
+</div>
