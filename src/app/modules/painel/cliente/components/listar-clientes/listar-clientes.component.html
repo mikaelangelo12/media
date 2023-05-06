@@ -1,11 +1,11 @@
 <div class="container-listar-cliente">
     <div class="listar-cliente">
         <mat-card>
-            <div class="container-texto" *ngIf="listaClientes.length == 0">
+            <div class="container-texto" *ngIf="listaClientes? listaClientes.length == 0 : true">
                 <span>Nenhum item foi encontrado</span>    
             </div>
         <div class="table-responsive">
-        <p-table  *ngIf="listaClientes.length > 0" [value]="listaClientes" [paginator]="true" [rows]="7" [responsive]="true" [resizableColumns]="true" [autoLayout]="true">
+        <p-table  *ngIf="listaClientes? listaClientes.length > 0 : true" [value]="listaClientes" [paginator]="true" [rows]="7" [responsive]="true" [resizableColumns]="true" [autoLayout]="true">
             <ng-template pTemplate="header" let-columns>
                 <tr>
                     <th pSortableColumn="name" style="width:20%"><mat-icon matSuffix>person</mat-icon> Nome <p-sortIcon field="name"></p-sortIcon></th>

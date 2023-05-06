@@ -28,7 +28,7 @@ export class ListarClientesComponent implements OnInit, OnDestroy {
   ) {
     this.subscriptionCliente = this.osObservable.observableCliente().subscribe((filtro: Filtro) => {
       this.filtro = filtro
-      if (filtro.nomeCliente.length > 0) {
+      if (filtro) {
         this.filtrarClientes()
       } else {
         this.listaClientes = this.clientes;
@@ -68,12 +68,12 @@ export class ListarClientesComponent implements OnInit, OnDestroy {
   }
 
   filtrarClientes() {
-    this.listaClientes = this.clientes.filter((listaCliente: Clientes | any) =>
-
-    (this.filtro.nomeCliente == null || listaCliente.name.toLowerCase().includes(this.filtro.nomeCliente.toLowerCase())) &&
-    (this.filtro.emailCliente == null || listaCliente.email.toLowerCase().includes(this.filtro.emailCliente.toLowerCase())) &&
-    (this.filtro.cidadeCliente == null || listaCliente.address.city.toLowerCase().includes(this.filtro.cidadeCliente.toLowerCase())) &&
-    (this.filtro.empresaCliente == null || listaCliente.company.name.toLowerCase().includes(this.filtro.empresaCliente.toLowerCase()))
+    console.log(this.filtro.nomeCliente)
+    this.listaClientes = this.clientes.filter((listaCliente: Clientes | any) =>    
+    (this.filtro.nomeCliente == '' || listaCliente.name.toLowerCase().includes(this.filtro.nomeCliente.toLowerCase())) &&
+    (this.filtro.emailCliente == '' || listaCliente.email.toLowerCase().includes(this.filtro.emailCliente.toLowerCase())) &&
+    (this.filtro.cidadeCliente == '' || listaCliente.address.city.toLowerCase().includes(this.filtro.cidadeCliente.toLowerCase())) &&
+    (this.filtro.empresaCliente == '' || listaCliente.company.name.toLowerCase().includes(this.filtro.empresaCliente.toLowerCase()))
 
     )
   }
