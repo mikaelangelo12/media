@@ -5,7 +5,6 @@ import { MatInputModule } from '@angular/material/input';
 import { TableModule } from 'primeng/table';
 import { MatCardModule } from '@angular/material/card';
 import { AgmCoreModule } from '@agm/core';
-import { AvatarModule } from 'primeng/avatar';
 import { DividerModule } from 'primeng/divider';
 
 import { ClienteComponent } from './page/cliente.component';
@@ -33,7 +32,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     MatCardModule,
     TableModule,
-    AvatarModule,
     DividerModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyANEJoyhzr3ZHni9JydB9grU6zr6jY-yPI'

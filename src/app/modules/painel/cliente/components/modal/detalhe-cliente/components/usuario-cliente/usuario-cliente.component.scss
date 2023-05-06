@@ -1,0 +1,29 @@
+.container-dados-cliente {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+    align-items: center;
+}
+
+.dados-cliente {
+    display: flex;
+    flex-direction: column;
+}
+
+.titulo-dados-cliente {
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+@media (max-width: 800px) {
+    .container-dados-cliente {
+        grid-template-columns: 50% 50%;
+        grid-template-rows: 50px 50px;
+    }
+}
+
+@media (max-width: 426px) {
+    .container-dados-cliente {
+        grid-template-columns: 100%;
+        grid-template-rows: 50px 50px 50px;
+    }
+}

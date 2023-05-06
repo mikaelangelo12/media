@@ -1,5 +1,70 @@
-<div class="">
-    <p-avatar label="{{cliente.name.charAt(0)}}" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
-    <span>{{cliente.name}}</span>
+<div class="titulo-dados-cliente">
+    <span>Cliente:</span>
 </div>
+<div class="container-dados-cliente">
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">Usuario:</span>
+        <span>{{cliente.username}}</span>
+    </div>
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">Email:</span>
+        <span>{{cliente.email}}</span>
+    </div>
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">Website:</span>
+        <span>{{cliente.website}}</span>
+    </div>
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">Telefone:</span>
+        <span>{{cliente.phone}}</span>
+    </div>
+</div>
+
+<p-divider></p-divider>
+
+<div class="titulo-dados-cliente">
+    <span>Empresa:</span>
+</div>
+
+<div class="container-dados-cliente">
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">Nome da Empresa:</span>
+        <span>{{cliente.company.name}}</span>
+    </div>
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">Slogan:</span>
+        <span>{{cliente.company.catchPhrase}}</span>
+    </div>
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">bs:</span>
+        <span>{{cliente.company.bs}}</span>
+    </div>
+
+</div>
+
+<p-divider></p-divider>
+
+<div class="titulo-dados-cliente">
+    <span>Endereço:</span>
+</div>
+
+<div class="container-dados-cliente">
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">Cidade:</span>
+        <span>{{cliente.address.city}}</span>
+    </div>
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">Avenida / Rua:</span>
+        <span>{{cliente.address.street}}</span>
+    </div>
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">Complemento:</span>
+        <span>{{cliente.address.suite}}</span>
+    </div>
+    <div class="dados-cliente">
+        <span style="font-weight: 700;">CEP:</span>
+        <span>{{cliente.address.zipcode}}</span>
+    </div>
+</div>
+
 <p-divider></p-divider>
