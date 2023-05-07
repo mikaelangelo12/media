@@ -12,7 +12,7 @@
 
 * `npx json-server --watch db.json`
 
-* Isso irá iniciar o servidor que será responsável por gerenciar os dados do projeto.
+* Isso irá iniciar o servidor que será responsável por gerenciar os dados do login.
 
 * Por fim, execute o comando para rodar o FrontEnd do projeto:
 
