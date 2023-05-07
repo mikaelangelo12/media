@@ -68,16 +68,11 @@ export class ListarClientesComponent implements OnInit, OnDestroy {
   }
 
   filtrarClientes() {
-    console.log(this.filtro.nomeCliente)
     this.listaClientes = this.clientes.filter((listaCliente: Clientes | any) =>    
     (this.filtro.nomeCliente == '' || listaCliente.name.toLowerCase().includes(this.filtro.nomeCliente.toLowerCase())) &&
     (this.filtro.emailCliente == '' || listaCliente.email.toLowerCase().includes(this.filtro.emailCliente.toLowerCase())) &&
     (this.filtro.cidadeCliente == '' || listaCliente.address.city.toLowerCase().includes(this.filtro.cidadeCliente.toLowerCase())) &&
     (this.filtro.empresaCliente == '' || listaCliente.company.name.toLowerCase().includes(this.filtro.empresaCliente.toLowerCase()))
-
     )
   }
-
-
-
 }
