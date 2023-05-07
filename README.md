@@ -30,4 +30,5 @@ Além disso, a aplicação conta com um sistema de autorização que permite con
 
 * Com isso, o projeto será iniciado em seu navegador e você poderá testá-lo em sua máquina.
 
-### Versão do Angular 15.2.4
+### Versão do Angular v15.2.4
+### Versão do Node v18.15.0
