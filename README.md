@@ -19,3 +19,5 @@
 * `npm start`
 
 * Com isso, o projeto será iniciado em seu navegador e você poderá testá-lo em sua máquina.
+
+### Versão do Angular 15.2.4
