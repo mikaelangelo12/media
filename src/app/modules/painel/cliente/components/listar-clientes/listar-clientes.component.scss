@@ -44,6 +44,11 @@
     overflow-x: scroll;
 }
 
+::ng-deep .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    color: $cor-primaria !important;
+    background: #01602a14;
+}
+
 .table-responsive {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
