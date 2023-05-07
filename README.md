@@ -18,15 +18,15 @@ Além disso, a aplicação conta com um sistema de autorização que permite con
 
 * (Observação: devido a um conflito nas dependências com a biblioteca agm, é necessário utilizar o --force.
 
-* Agora é necessário rodar o JSON-Server. Para isso, digite o seguinte comando no seu terminal:
+* Agora execute o comando para rodar o FrontEnd do projeto:
+
+* `npm start`
+
+* Por fim, abrindo um outro terminal é necessário rodar o JSON-Server. Para isso, digite o seguinte comando no seu terminal:
 
 * `npx json-server --watch db.json`
 
-* Isso irá iniciar o servidor que será responsável por gerenciar os dados do login.
-
-* Por fim, execute o comando para rodar o FrontEnd do projeto:
-
-* `npm start`
+* Irá iniciar o servidor que será responsável por gerenciar os dados do login.
 
 * Com isso, o projeto será iniciado em seu navegador e você poderá testá-lo em sua máquina.
 
