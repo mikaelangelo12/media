@@ -25,3 +25,38 @@
         width: 110px;
     }
 }
+
+.container-user{
+    display: flex;
+    align-items: center;
+}
+.user{
+    display: flex;    
+    align-items: flex-end;
+    flex-direction: column;
+    margin-right: 10px;
+}
+.nome-usuario{
+    font-weight: 700;
+}
+
+::ng-deep .p-overlaypanel .p-overlaypanel-content{
+    padding: 0!important;
+}
+
+::ng-deep .p-menu {
+    width: 11.4rem!important;
+}
+::ng-deep .p-menu .p-menuitem-link .p-menuitem-text {
+    font-size: 0.8rem!important;
+}
+
+::ng-deep .p-menu .p-menuitem-link .p-menuitem-icon {
+    font-size: 0.8rem!important;
+}
+::ng-deep  .p-avatar.p-avatar-circle{
+    box-sizing: border-box;
+    color: black!important;
+    font-weight: 900;
+    text-transform: uppercase!important;
+}

@@ -1,0 +1,10 @@
+<div class="texto-feature-muito-pequeno"> {{msg}}</div>
+
+<div *ngIf="ativarBotoes" style="display: flex; flex-direction: row; justify-content: flex-end; margin-top: 20px;">
+    <div class="container-botao-login">
+        <p-button label="{{cancelar}}" (onClick)="onClickCancelar()"  styleClass="p-button-raised p-button-text p-button-secondary"></p-button>
+    </div>
+    <div class="container-botao-login">
+        <p-button label="{{confirmar}}" (onClick)="onClickConfirmar()" styleClass="p-button-secondary"></p-button>
+    </div>
+</div>

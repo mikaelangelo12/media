@@ -4,6 +4,15 @@
             <img src="../../../../assets/img/logo.png" alt="Logo Media">
         </div>
 
-        <h1>Login</h1>
+        <div *ngIf="storage.usuario" pRipple class="container-user" (click)="op.toggle($event)" style="cursor: pointer;">
+            <div class="user">
+                <span class="nome-usuario">{{storage.usuario}}</span>               
+            </div>    
+            <p-avatar label="{{storage.usuario.charAt(0)}}" styleClass="mr-2"shape="circle"></p-avatar>
+        </div>
+
     </div>
+    <p-overlayPanel #op>
+        <p-menu [model]="items"></p-menu>
+    </p-overlayPanel>
 </div>

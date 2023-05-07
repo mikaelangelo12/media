@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
+  storage: Storage | any;
   subscriptionCriarUsuario: Subscription
   subscriptionVoltarUsuario: Subscription
   criarUsuario: boolean = false;
@@ -26,6 +27,8 @@ export class LoginComponent {
     })
   }
   ngOnInit(): void {
+    this.storage = window.localStorage;
+    this.storage.clear()
     this.exbirFormularioCriarUsuario = true;
   }
   exibirFormularioLogin(){
@@ -37,9 +40,6 @@ export class LoginComponent {
       this.exbirFormularioCriarUsuario = this.voltarUsuario;
       this.exbirFormularioVoltarUsuario = false;
       this.voltarUsuario = false;
-    }else{
-      this.exbirFormularioCriarUsuario = false
-      this.exbirFormularioVoltarUsuario = false;
     }
   }
 }

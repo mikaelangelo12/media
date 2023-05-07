@@ -6,6 +6,7 @@ import { MessageService } from 'primeng/api';
 import { LoginService } from 'src/app/shared/services/login.service';
 import { LoginObservableService } from '../../service/login-observable.service';
 import { DadosUsuarios } from 'src/app/shared/model/login/login.model';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
   isErrorState(control: FormControl | null, form: FormGroupDirective | NgForm | null): boolean {
@@ -27,6 +28,7 @@ export class LoginUsuarioComponent {
   
   constructor(
     private readonly router: Router,
+    private readonly authService: AuthService,
     private osService: LoginObservableService,
     private loginService: LoginService,
     private messageService: MessageService,
@@ -68,7 +70,6 @@ export class LoginUsuarioComponent {
   salvarDadoUsuarioMemoria(){
     const daddosUsuarios: any = this.dadosUsuarios.filter(entidade => entidade.username === this.usuarioSenha.username)
     localStorage.setItem('usuario', daddosUsuarios[0].username);
-    localStorage.setItem('tipoUsuario', daddosUsuarios[0].tipoUsuario);
   }
 
   acessaPainel(){
@@ -78,6 +79,8 @@ export class LoginUsuarioComponent {
       this.messageService.add({severity:'success', summary:`Bem Vindo ${this.usuario}!`, detail:'Parabéns! Suas credenciais foram verificadas com sucesso. Você agora está logado em sua conta.'});
       this.salvarDadoUsuarioMemoria()
       setTimeout(() => {
+        localStorage.setItem('loggedIn', 'true');
+        this.authService.login(this.usuarioSenha.username, this.usuarioSenha.password)
         this.router.navigate(['/painel'])
         this.messageService.clear();
       }, 1000);
