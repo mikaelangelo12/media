@@ -1,11 +1,11 @@
-import { Address, Clientes } from 'src/app/shared/model/cliente.model';
+import { Address, Clientes } from 'src/app/shared/model/painel/cliente/cliente.model';
 import { ClienteService } from './../../../../../shared/services/cliente.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription, finalize } from 'rxjs';
 import { DetalheClienteComponent } from '../modal/detalhe-cliente/detalhe-cliente.component';
 import { DialogService } from 'primeng/dynamicdialog';
 import { ClientesObservableService } from '../../service/clientes-obsevable.service';
-import { Filtro } from 'src/app/shared/model/filtro-cliente.model';
+import { Filtro } from 'src/app/shared/model/painel/cliente/filtro-cliente.model';
 
 
 @Component({

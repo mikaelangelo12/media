@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ClientesObservableService } from '../../service/clientes-obsevable.service';
-import { Filtro } from 'src/app/shared/model/filtro-cliente.model';
+import { Filtro } from 'src/app/shared/model/painel/cliente/filtro-cliente.model';
 
 @Component({
   selector: 'app-filtrar-clientes',

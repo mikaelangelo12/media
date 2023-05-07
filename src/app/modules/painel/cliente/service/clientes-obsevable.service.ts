@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Observable, Subject } from "rxjs";
-import { Filtro } from "src/app/shared/model/filtro-cliente.model";
+import { Filtro } from "src/app/shared/model/painel/cliente/filtro-cliente.model";
 
 @Injectable({
     providedIn: 'root'

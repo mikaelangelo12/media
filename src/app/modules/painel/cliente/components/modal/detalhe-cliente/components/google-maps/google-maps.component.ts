@@ -1,5 +1,5 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
-import { Geo } from 'src/app/shared/model/cliente.model';
+import { Geo } from 'src/app/shared/model/painel/cliente/cliente.model';
 
 @Component({
   selector: 'app-google-maps',
