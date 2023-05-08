@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Clientes } from 'src/app/shared/model/painel/cliente/cliente.model';
 
 @Component({
   selector: 'app-usuario-cliente',
@@ -6,5 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./usuario-cliente.component.scss']
 })
 export class UsuarioClienteComponent {
- @Input() cliente: any;
+ @Input() cliente: Clientes| any;
 }

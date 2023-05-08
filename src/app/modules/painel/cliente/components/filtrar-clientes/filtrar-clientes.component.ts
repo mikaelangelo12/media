@@ -10,13 +10,9 @@ import { Filtro } from 'src/app/shared/model/painel/cliente/filtro-cliente.model
 export class FiltrarClientesComponent implements OnInit {
   filtro = new Filtro();
 
-  constructor(
-    private readonly osObservable: ClientesObservableService,
-  ){}
+  constructor(private readonly osObservable: ClientesObservableService){}
 
-  ngOnInit(): void {    
-
-  }
+  ngOnInit(): void {}
 
   dadosNomeCliente(){
     this.osObservable.nextCliente(this.filtro)

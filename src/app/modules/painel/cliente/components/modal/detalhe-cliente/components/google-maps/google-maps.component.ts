@@ -12,6 +12,7 @@ export class GoogleMapsComponent implements OnInit {
   lng: any;
   zoom: number = 15;
   label:string = '';
+  
   ngOnInit(): void {
     this.lat = parseFloat(this.geo.lat)
     this.lng = parseFloat(this.geo.lng)
