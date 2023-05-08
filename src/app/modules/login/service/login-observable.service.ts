@@ -7,6 +7,8 @@ import { Observable, Subject } from "rxjs";
 export class LoginObservableService {
     private readonly criarUsuario: Subject<boolean> = new Subject;
     private readonly voltarUsuario: Subject<boolean> = new Subject;
+    private readonly erroApi: Subject<boolean> = new Subject;
+
 
     public observableCriarUsuario(): Observable<boolean>{
         return this.criarUsuario.asObservable()
@@ -19,5 +21,12 @@ export class LoginObservableService {
     }
     public nextVoltarUsuario(exibir: boolean){
         return this.voltarUsuario.next(exibir);
+    }
+
+    public observableLogin(): Observable<boolean>{
+        return this.erroApi.asObservable()
+    }
+    public nextLogin(exibir: boolean){
+        return this.erroApi.next(exibir);
     }
 }

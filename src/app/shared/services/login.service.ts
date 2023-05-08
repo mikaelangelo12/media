@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { ApiService } from './api.service';
 import { AppConfig } from '../../../app/app.config';
 import { catchError, throwError } from 'rxjs';
-import { LoginServicesObservableService } from 'src/app/modules/login/service/observable/login-observable.service';
+import { LoginObservableService } from 'src/app/modules/login/service/login-observable.service';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +13,7 @@ import { LoginServicesObservableService } from 'src/app/modules/login/service/ob
 export class LoginService extends ApiService<any>{
 
   constructor(
-    private readonly osService: LoginServicesObservableService, 
+    private readonly osService: LoginObservableService, 
     override readonly httpClient: HttpClient
   ) { 
     super(httpClient)
