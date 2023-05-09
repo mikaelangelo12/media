@@ -4,7 +4,7 @@ import { DialogService, DynamicDialogConfig, DynamicDialogRef } from 'primeng/dy
 @Component({
   selector: 'app-modal-confirmacao',
   templateUrl: './modal-confirmacao.component.html',
-  styleUrls: ['./modal-confirmacao.component.css'],
+  styleUrls: ['./modal-confirmacao.component.scss'],
   providers: [DialogService]
 })
 export class ModalConfirmacaoComponent {
