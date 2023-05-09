@@ -85,8 +85,10 @@ export class LoginUsuarioComponent {
         this.messageService.clear();
       }, 1000);
 
-    }else{
-      this.messageService.add({severity:'error', summary:`Desculpe`, sticky: true ,detail:'suas credenciais estão incorretas. \n Verifique se você digitou corretamente seu nome de usuário e senha e tente novamente.'});
+    }else if((!this.usuario && !this.senha) || (this.usuario && !this.senha) || (!this.usuario && this.senha)){
+      this.messageService.add({severity:'info', summary:`Atenção`, sticky: false ,detail:'Para acessar sua conta, por favor, preencha os campos de usuário e senha.'});      
+    } else{
+      this.messageService.add({severity:'error', summary:`Desculpe`, sticky: false ,detail:'Usuário ou senha inválidos. Tente novamente.'});
     }
 
   }

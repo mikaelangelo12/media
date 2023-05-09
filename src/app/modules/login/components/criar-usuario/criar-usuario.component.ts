@@ -57,11 +57,11 @@ export class CriarUsuarioComponent implements OnInit {
 
         })
       }else{
-        this.messageService.add({severity:'warn', summary:`Desculpe!`, sticky: true ,detail:'suas credenciais já existe. Por favor, escolha outro nome de usuário.'});
+        this.messageService.add({severity:'warn', summary:`Desculpe!`, sticky: false ,detail:'Suas credenciais já existem. Por favor, escolha outro nome de usuário.'});
       }
 
-    }else{
-      this.messageService.add({severity:'error', summary:`Desculpe!`, sticky: true ,detail:'Por favor, preencha todos os campos obrigatórios antes de criar um novo usuário. É importante que todas as informações sejam fornecidas corretamente. Obrigado!'});
+    }else if((!this.usuario && !this.senha) || (this.usuario && !this.senha) || (!this.usuario && this.senha)){
+      this.messageService.add({severity:'info', summary:`Atenção`, sticky: false ,detail:'Para criar sua conta, por favor, preencha os campos de usuário e senha.'});      
     }
   }
 }
