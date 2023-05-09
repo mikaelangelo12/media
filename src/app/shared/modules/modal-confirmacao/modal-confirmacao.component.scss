@@ -1,0 +1,12 @@
+@import '../../../../styles.scss';
+
+.container-botao-login{
+    margin-right: 10px;
+    button{
+        background-color: $cor-primaria;
+        height: 45px;
+        width: 86px;
+        font-size: 0.9rem;
+        font-weight: 700;
+    }
+}

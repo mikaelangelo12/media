@@ -7,6 +7,7 @@ import { OverlayPanelModule } from 'primeng/overlaypanel';
 import { RippleModule } from 'primeng/ripple';
 import { MenuModule } from 'primeng/menu';
 import { ButtonModule } from 'primeng/button';
+import { MatButtonModule } from '@angular/material/button';
 
 import { LayoutComponent } from './layout.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -42,7 +43,8 @@ import { ModalConfirmacaoComponent } from '../shared/modules/modal-confirmacao/m
     RippleModule,
     MenuModule,
     DynamicDialogModule,
-    ButtonModule
+    ButtonModule,
+    MatButtonModule
   ],   
   entryComponents: [
     ModalConfirmacaoComponent
